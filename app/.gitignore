@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Node/Next.js
+web/.next/
+web/node_modules/
+web/.turbo/
+
+# Env
+.env
+infra/.env
+infra/.env.local
+
+# Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+

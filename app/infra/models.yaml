@@ -1,0 +1,19 @@
+models:
+  extract_structured: openai:gpt-4.1-mini
+  tag_topics: anthropic:claude-3.7
+  entity_resolve: openai:gpt-4o
+  summarize_profile: openai:gpt-4o-mini
+  embed_text: openai:text-embedding-3-large
+  rank_candidates: none
+api_keys:
+  OPENAI_API_KEY: "${OPENAI_API_KEY}"
+  ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY}"
+  GOOGLE_API_KEY: "${GOOGLE_API_KEY}"
+  OLLAMA_BASE_URL: "http://host.docker.internal:11434"
+policy:
+  max_tokens: 2000
+  retry:
+    max_attempts: 3
+    backoff: jitter
+  daily_cost_limit_usd: 5.0
+
