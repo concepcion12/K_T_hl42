@@ -1,12 +1,11 @@
 """Connector package."""
 
-from . import caha_pdf, reddit, events, instagram_stub, tiktok_stub
+from . import caha_pdf, reddit, events, instagram, tiktok
 
 __all__ = [
     "caha_pdf",
     "reddit",
     "events",
-    "instagram_stub",
-    "tiktok_stub",
+    "instagram",
+    "tiktok",
 ]
-
