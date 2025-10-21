@@ -139,3 +139,16 @@ def upgrade() -> None:
         sa.Column("enabled", sa.Boolean(), server_default=sa.text("true")),
     )
 
+
+def downgrade() -> None:
+    op.drop_table("schedules")
+    op.drop_table("runs")
+    op.drop_table("embeddings")
+    op.drop_table("talent_event")
+    op.drop_table("talent_org")
+    op.drop_table("mention")
+    op.drop_table("event")
+    op.drop_table("org")
+    op.drop_table("talent")
+    op.drop_table("candidate")
+    op.drop_table("source")

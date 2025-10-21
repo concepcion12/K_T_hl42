@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Sequence
 
 from connectors.base import Candidate, Connector, SourcePayload, registry
@@ -13,7 +13,7 @@ class InstagramStubConnector:
     default_cadence = "0 8 * * *"  # daily
 
     def fetch(self, since: datetime | None) -> Sequence[SourcePayload]:
-        fetched_at = datetime.utcnow()
+        fetched_at = datetime.now(timezone.utc)
         return [
             SourcePayload(
                 channel=self.name,
@@ -21,6 +21,15 @@ class InstagramStubConnector:
                 kind="json",
                 fetched_at=fetched_at,
                 raw_blob_ptr=None,
+                meta={
+                    "status": "stub",
+                    "note": "ToS-compliant placeholder for future Instagram ingestion",
+                    "seed_accounts": [
+                        "@theguamguide",
+                        "@artspaceguahan",
+                        "@eifestival",
+                    ],
+                },
             )
         ]
 
