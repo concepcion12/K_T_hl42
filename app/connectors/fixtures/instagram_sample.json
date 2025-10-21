@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "id": "17900000000000001",
+      "username": "theguamguide",
+      "caption": "Excited to collaborate with @ritidianbeats at #GuamMusic Fest this weekend!",
+      "timestamp": "2024-04-15T10:00:00+00:00",
+      "like_count": 124,
+      "comments_count": 8,
+      "media_type": "IMAGE",
+      "permalink": "https://www.instagram.com/p/ABC123/",
+      "location": {
+        "name": "Hagåtña",
+        "id": "12345",
+        "latitude": 13.4757,
+        "longitude": 144.748
+      }
+    },
+    {
+      "id": "17900000000000002",
+      "username": "artspaceguahan",
+      "caption": "Join @weavercollective for a live demo! #GuamArt #Guåhan creatives unite.",
+      "timestamp": "2024-04-16T01:30:00+00:00",
+      "like_count": 210,
+      "comments_count": 15,
+      "media_type": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DEF456/",
+      "location": {
+        "name": "Tumon Bay",
+        "id": "67890",
+        "latitude": 13.515,
+        "longitude": 144.807
+      }
+    }
+  ]
+}

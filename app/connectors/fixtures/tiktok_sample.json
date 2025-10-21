@@ -1,0 +1,63 @@
+{
+  "aweme_list": [
+    {
+      "aweme_id": "7212345678901234567",
+      "desc": "Island rhythms with @ritidianbeats bringing #GuamMusic to life!",
+      "create_time": 1713206400,
+      "share_url": "https://www.tiktok.com/@artspaceguahan/video/7212345678901234567",
+      "statistics": {
+        "digg_count": 452,
+        "comment_count": 36,
+        "share_count": 27,
+        "play_count": 18234
+      },
+      "author": {
+        "unique_id": "artspaceguahan",
+        "nickname": "Art Space Guåhan"
+      },
+      "location": {
+        "name": "Chamorro Village",
+        "latitude": 13.4758,
+        "longitude": 144.7485
+      },
+      "text_extra": [
+        {
+          "hashtag_name": "GuamMusic"
+        },
+        {
+          "hashtag_name": "IslandLife"
+        },
+        {
+          "user_unique_id": "ritidianbeats"
+        }
+      ]
+    },
+    {
+      "aweme_id": "7212345678901234568",
+      "desc": "Spotlight on @weavercollective weaving #GuamArt traditions. #Decolonize",
+      "create_time": 1713292800,
+      "share_url": "https://www.tiktok.com/@theguamguide/video/7212345678901234568",
+      "statistics": {
+        "digg_count": 389,
+        "comment_count": 41,
+        "share_count": 32,
+        "play_count": 20567
+      },
+      "author": {
+        "unique_id": "theguamguide",
+        "nickname": "The Guam Guide"
+      },
+      "text_extra": [
+        {
+          "hashtag_name": "GuamArt"
+        },
+        {
+          "hashtag_name": "Decolonize"
+        },
+        {
+          "user_unique_id": "weavercollective"
+        }
+      ]
+    }
+  ]
+}
