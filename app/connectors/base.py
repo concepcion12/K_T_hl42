@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Protocol, Sequence
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class SourcePayload(BaseModel):
@@ -16,14 +16,14 @@ class SourcePayload(BaseModel):
     fetched_at: datetime
     content_hash: str | None = None
     raw_blob_ptr: str | None = None
-    meta: dict[str, object] = {}
+    meta: dict[str, object] = Field(default_factory=dict)
 
 
 class Candidate(BaseModel):
     name: str
     evidence: str
     channel: str
-    metadata: dict[str, object] = {}
+    metadata: dict[str, object] = Field(default_factory=dict)
 
 
 class Connector(Protocol):

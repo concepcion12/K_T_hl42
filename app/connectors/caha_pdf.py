@@ -5,7 +5,7 @@ Parses the institutional CAHA PDF to seed talent and affiliations.
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Sequence
 
@@ -22,8 +22,10 @@ class CAHAPDFConnector:
         self.pdf_path = pdf_path or Path("connectors/fixtures/caha_sample.pdf")
 
     def fetch(self, since: datetime | None) -> Sequence[SourcePayload]:
-        fetched_at = datetime.utcnow()
-        content_hash = f"caha:{int(self.pdf_path.stat().st_mtime)}"
+        fetched_at = datetime.now(timezone.utc)
+        content_hash = None
+        if self.pdf_path.exists():
+            content_hash = f"caha:{int(self.pdf_path.stat().st_mtime)}"
         return [
             SourcePayload(
                 channel=self.name,
@@ -32,6 +34,10 @@ class CAHAPDFConnector:
                 fetched_at=fetched_at,
                 raw_blob_ptr=str(self.pdf_path),
                 content_hash=content_hash,
+                meta={
+                    "institutional_anchor": True,
+                    "description": "CAHA Artist Directory",
+                },
             )
         ]
 

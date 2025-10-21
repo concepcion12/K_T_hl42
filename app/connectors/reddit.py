@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Sequence
 
 from connectors.base import Candidate, Connector, SourcePayload, registry
@@ -18,7 +18,7 @@ class RedditConnector:
     default_cadence = "0 6 * * *"  # daily morning
 
     def fetch(self, since: datetime | None) -> Sequence[SourcePayload]:
-        fetched_at = datetime.utcnow()
+        fetched_at = datetime.now(timezone.utc)
         return [
             SourcePayload(
                 channel=self.name,
@@ -26,6 +26,16 @@ class RedditConnector:
                 kind="html",
                 fetched_at=fetched_at,
                 raw_blob_ptr="connectors/fixtures/reddit_sample.html",
+                meta={
+                    "community_signal": "reddit",
+                    "saved_searches": [
+                        "artist",
+                        "band",
+                        "market vendor",
+                        "tattoo",
+                        "weaver",
+                    ],
+                },
             )
         ]
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Sequence
 
 from connectors.base import Candidate, Connector, SourcePayload, registry
@@ -13,7 +13,7 @@ class EventsConnector:
     default_cadence = "0 5 * * 1"  # weekly Monday
 
     def fetch(self, since: datetime | None) -> Sequence[SourcePayload]:
-        fetched_at = datetime.utcnow()
+        fetched_at = datetime.now(timezone.utc)
         return [
             SourcePayload(
                 channel=self.name,
@@ -21,6 +21,10 @@ class EventsConnector:
                 kind="html",
                 fetched_at=fetched_at,
                 raw_blob_ptr="connectors/fixtures/events_sample.html",
+                meta={
+                    "cadence": "weekly",
+                    "channels": ["GuamTime", "The Guam Guide", "Visit Guam", "Festival rosters"],
+                },
             )
         ]
 
