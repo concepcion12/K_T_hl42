@@ -1,6 +1,6 @@
 """Root router exports."""
 
-from . import health, runs
+from . import candidates, health, logs, runs, schedules, talent
 
-__all__ = ["health", "runs"]
+__all__ = ["health", "runs", "candidates", "talent", "schedules", "logs"]
 
