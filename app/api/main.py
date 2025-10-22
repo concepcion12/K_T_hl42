@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
-from api.routes import health, runs
+from api.routes import candidates, health, logs, runs, schedules, talent
 from connectors import caha_pdf, events, instagram_stub, reddit, tiktok_stub  # noqa: F401
 from workers.scheduler import enqueue_due_jobs
 
@@ -26,6 +26,10 @@ def create_app() -> FastAPI:
 
     app.include_router(health.router)
     app.include_router(runs.router)
+    app.include_router(candidates.router)
+    app.include_router(talent.router)
+    app.include_router(schedules.router)
+    app.include_router(logs.router)
 
     return app
 

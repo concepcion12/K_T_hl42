@@ -65,7 +65,7 @@ def run_connector(connector_name: str) -> None:
                             name=candidate.name,
                             channel=candidate.channel,
                             evidence=candidate.evidence,
-                            metadata=candidate.metadata,
+                            metadata_json=candidate.metadata,
                         )
                     )
                 item_total += len(candidates)

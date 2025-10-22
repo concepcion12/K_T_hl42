@@ -23,8 +23,21 @@ from sqlalchemy import (
 from sqlalchemy.dialects.postgresql import ARRAY
 from pgvector.sqlalchemy import Vector
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.types import TypeDecorator
 
 from .base import Base
+
+
+class StringList(TypeDecorator):
+    """Stores lists of strings across SQLite and Postgres."""
+
+    impl = ARRAY(String)
+    cache_ok = True
+
+    def load_dialect_impl(self, dialect):  # type: ignore[override]
+        if dialect.name == "sqlite":
+            return dialect.type_descriptor(JSON())
+        return dialect.type_descriptor(ARRAY(String))
 
 
 class Source(Base):
@@ -51,7 +64,7 @@ class Candidate(Base):
     name: Mapped[str] = mapped_column(String, nullable=False)
     channel: Mapped[str] = mapped_column(String, nullable=False)
     evidence: Mapped[str | None] = mapped_column(Text)
-    metadata: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
+    metadata_json: Mapped[dict[str, Any]] = mapped_column("metadata", JSON, default=dict)
     status: Mapped[str] = mapped_column(String, default="pending")
     score: Mapped[float | None] = mapped_column(Numeric)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.utcnow)
@@ -72,8 +85,8 @@ class Talent(Base):
     contact_public: Mapped[bool] = mapped_column(Boolean, default=False)
     contact_email: Mapped[str | None] = mapped_column(String)
     phone: Mapped[str | None] = mapped_column(String)
-    location_tags: Mapped[list[str] | None] = mapped_column(ARRAY(String))
-    themes: Mapped[list[str] | None] = mapped_column(ARRAY(String))
+    location_tags: Mapped[list[str] | None] = mapped_column(StringList())
+    themes: Mapped[list[str] | None] = mapped_column(StringList())
     notes: Mapped[str | None] = mapped_column(Text)
     score: Mapped[float | None] = mapped_column(Numeric)
     score_json: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
