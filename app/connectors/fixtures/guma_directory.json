@@ -1,0 +1,26 @@
+{
+  "updated": "2024-11-01T00:00:00Z",
+  "artists": [
+    {
+      "name": "Ina Tuncap",
+      "disciplines": ["Weaving", "Cultural Education"],
+      "email": "ina.tuncap@example.com",
+      "phone": "(671) 555-2301",
+      "program": "Traditional Arts Incubator"
+    },
+    {
+      "name": "Noah Aguon",
+      "disciplines": ["Woodworking"],
+      "email": "noah.aguon@example.com",
+      "phone": "671-555-8877",
+      "program": "Market Collective"
+    },
+    {
+      "name": "Ina Tuncap",
+      "disciplines": ["Weaving"],
+      "email": "INA.TUNCAP@example.com",
+      "phone": "671 555 2301",
+      "program": "Traditional Arts Incubator"
+    }
+  ]
+}

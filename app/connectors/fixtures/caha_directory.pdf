@@ -1,0 +1,49 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 463 >>
+stream
+BT
+/F1 12 Tf
+14 TL
+72 760 Td
+(CAHA Artist Directory) Tj
+T*
+(Name - Discipline - Email - Phone) Tj
+T*
+(Lina Cruz - Visual Arts - lina.cruz@example.com - (671) 555-0101) Tj
+T*
+(Mason Reyes - Music / Composition - mason.reyes@example.com - 671-555-0199) Tj
+T*
+(Tia Santos - Dance - tia.santos@example.com - (671)555-4432) Tj
+T*
+(Sofia Kim - Theatre - sofia.kim@example.com - 671.555.7788) Tj
+T*
+(Lina Cruz - Visual Arts - LINA.CRUZ@example.com - 671 555 0101) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000754 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+824
+%%EOF
