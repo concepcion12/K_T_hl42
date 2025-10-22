@@ -51,13 +51,18 @@ class Candidate(Base):
     name: Mapped[str] = mapped_column(String, nullable=False)
     channel: Mapped[str] = mapped_column(String, nullable=False)
     evidence: Mapped[str | None] = mapped_column(Text)
-    metadata: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
+    metadata_json: Mapped[dict[str, Any]] = mapped_column("metadata", JSON, default=dict)
     status: Mapped[str] = mapped_column(String, default="pending")
     score: Mapped[float | None] = mapped_column(Numeric)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.utcnow)
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.utcnow, onupdate=datetime.utcnow)
 
     source: Mapped["Source"] = relationship("Source", back_populates="candidates")
+
+    def __init__(self, *args, metadata: dict[str, Any] | None = None, **kwargs) -> None:
+        if metadata is not None:
+            kwargs["metadata_json"] = metadata
+        super().__init__(*args, **kwargs)
 
 
 class Talent(Base):
